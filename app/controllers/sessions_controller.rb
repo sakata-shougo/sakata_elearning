@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
   def create
     # Check if email exists in our database
     # Check if password is correct for that email
-    user = User.find_by(email: params[:session][:email])
+    user = User.find_by(email: params[:session][:email]) 
       
     if user && user.authenticate(params[:session][:password])
+      flash[:success] = "Success full"
       # Sign the user in and redirect to the user's show page
       sign_in user
       redirect_to root_url
