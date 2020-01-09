@@ -1,0 +1,21 @@
+<div class="col-6 mx-auto">
+<h1 class="text-center">log-in</h1>
+
+<%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :name, class:"form-control" %>     
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control" %>     
+    </div>
+
+    <p></p>
+    <div>
+    <%= f.submit "create new account",class:"btn btn-primary", class:"form-control" %>
+    </div>
+<% end %>
+
+</div>
