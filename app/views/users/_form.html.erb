@@ -1,0 +1,25 @@
+ <%= render 'shared/error-message' %> <!--error-messageからファイルを持ってくる。-->
+
+<%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class:"form-control" %>      
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class:"form-control" %>     
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control" %>     
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class:"form-control" %>     
+    </div>
+    <p></p>
+    <div class="form-group">
+      <%= f.submit "create new account",class:"btn btn-primary", class:"form-control" %>
+    </div>
+
+<% end %>
