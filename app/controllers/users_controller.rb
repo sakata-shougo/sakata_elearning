@@ -18,9 +18,31 @@ class UsersController < ApplicationController
         render 'new'
       end
     end
+
+    def edit
+      # Finding the specific user to EDIT
+      @user = User.find(params[:id])
+    end
+  
+    # Button for Updating profile
+    def update
+      @user = User.find(params[:id])
+  
+      if @user.update_attributes(users_params)
+        # If successful UPDATE, this will happen
+        flash[:success] = "Successfully Update" 
+        redirect_to root_url# Goes to Profile
+      else
+        #  If user doesn't input anything, render Edit again
+        render 'edit'
+      end
+    end
   
     private
       def users_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation,:avatar)
       end
+
+ 
+
   end
