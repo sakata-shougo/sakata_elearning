@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create(        #ダミーユーザー
+    name: "Ian Carter",
+    email: "ian@email.com",
+    password: "password"
+)
+
+# How to use Faker
+# 1) Go to https://github.com/faker-ruby/faker/blob/master/doc/default/food.md
+# 2) Then go to any category you want
+# 3) After picking and clicking on the category,
+# it will lead you to its show page
+# 4) Pick a random name/description/phrase (example: Faker::Food.sushi #=> "Sea bream")
+# 5) Put it on an attribute (example: name: Faker::Food.sushi)
+# 6) Run " rails db:migrate:reset db:seed "
+# 7) Now check all your users! Enjoy.
+
+50.times do |n|
+     User.create(
+        name: Faker::Food.spice,  # example: Mushroom Risotto
+        email: "user#{n+1}@email.com", # example: user1@email.com
+        password: "password"
+    )
+end

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
     def new
       @user = User.new
     end
+
+    # Show all users
+    def index
+      # @users = User.all
+      @users = User.paginate(page: params[:page], per_page: 10)
+    end
   
     def create
       @user = User.new(users_params)
@@ -17,7 +23,4 @@ class UsersController < ApplicationController
       def users_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
-    
-    def login
-    end
   end

@@ -1,0 +1,22 @@
+<% provide(:title, 'All users') %>
+<h1 class="text-center">All users</h1>
+
+<%# How to call pagination %>
+<div class=text-center>
+ <div class="paginate mb-3 ">
+    <%= will_paginate @users %>
+ </div>
+
+ <div class="row">
+    <% @users.each do |user| %>
+        <div class="col-md-6 mb-2">
+          
+            <%= link_to user.name, user_path(user.id) %>
+        </div>
+    <% end %>
+ </div>
+
+ <div class="paginate my-3">
+    <%= will_paginate @users %>
+ </div>
+</div>
