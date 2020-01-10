@@ -63,3 +63,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap','~> 4.4.1'
 gem 'jquery-rails'
+
+
+# How to make pages in website
+gem 'will_paginate', '~> 3.2', '>= 3.2.1'
+gem 'will_paginate-bootstrap4', '~> 0.2.2'
+gem "font-awesome-rails"
+
+# How to make many users
+gem 'faker', '~> 2.9'
