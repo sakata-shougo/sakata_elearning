@@ -23,7 +23,7 @@ User.create(        #ダミーユーザー
 # 6) Run " rails db:migrate:reset db:seed "
 # 7) Now check all your users! Enjoy.
 
-50.times do |n|
+50.times do |n|　　#fakerを使う
      User.create(
         name: Faker::Food.spice,  # example: Mushroom Risotto
         email: "user#{n+1}@email.com", # example: user1@email.com

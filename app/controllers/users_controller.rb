@@ -37,12 +37,17 @@ class UsersController < ApplicationController
         render 'edit'
       end
     end
+
+    def show
+      @user = User.find(params[:id])
+      @microposts = @user.microposts.paginate(page: params[:page])
+   end
   
     private
       def users_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation,:avatar)
       end
 
- 
+     
 
   end
