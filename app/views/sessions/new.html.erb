@@ -2,7 +2,7 @@
     <div class="col-md-6 mx-auto">
         <h1 class="text-center">Sign in</h1>
 
-        <%= form_for :session, url: signin_path do |f| %>
+        <%= form_for :session, url: signin_path do |f| %> <!--formに記述された名前と-->
             <div class="form-group">
                 <%= f.label :email %>
                 <%= f.text_field :email, class: "form-control mb-2" %>

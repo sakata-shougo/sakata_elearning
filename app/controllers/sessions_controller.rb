@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    # This is for the Login/Signin form
+    # This is for the Login/Signin form,
   end
   
   def create
