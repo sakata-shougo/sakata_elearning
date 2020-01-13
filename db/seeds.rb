@@ -7,11 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(        #ダミーユーザー
-    name: "Ian Carter",
-    email: "ian@email.com",
-    password: "password"
-)
 
 # How to use Faker
 # 1) Go to https://github.com/faker-ruby/faker/blob/master/doc/default/food.md
@@ -23,10 +18,10 @@ User.create(        #ダミーユーザー
 # 6) Run " rails db:migrate:reset db:seed "
 # 7) Now check all your users! Enjoy.
 
-50.times do |n|　　#fakerを使う
-     User.create(
-        name: Faker::Food.spice,  # example: Mushroom Risotto
-        email: "user#{n+1}@email.com", # example: user1@email.com
-        password: "password"
-    )
+50.times do |n|  #fakerを決めた
+    User.create(
+       name: Faker::Food.dish, # example: Mushroom Risotto
+       email: "user#{n+1}@email.com", # example: user1@email.com
+       password: "password"
+   )
 end
