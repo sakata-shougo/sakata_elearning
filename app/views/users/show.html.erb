@@ -9,18 +9,29 @@
             <div class="card-body text-center">
                 <h1><%= @user.name %></h1>
                 <%= user_avatar(@user,"img-size")%>　<!--user_avatarの引数に@userを入れる-->
+                <% unless current_user == @user %>
+                    <% unless current_user.relationship(@user) %>
+                        <%= button_to "Follow", relationships_path,
+                                            params: {followed_id: @user.id},
+                                            class: "btn btn-sm btn-success mt-4" %>
+                    <% else %>
+                        <%= button_to "Unfollow", relationship_path(current_user.relationship(@user)),
+                                            method: :delete,
+                                            class: "btn btn-sm btn-danger mt-4" %>
+                    <% end %>
+                <% end %>
                 <hr>
               <div class="row mt-12"> <!--rowの中にcolが格納されている。-->
                 <div class="col-sm-6"> <!--smはsmallの略称-->
                  <a href="#">
-			      <strong>0</strong> 
+			      <strong><%= link_to @user.active_relationships.count, "#" %></strong> 
 			     </a>
                   <div>followers</div>
                 </div>	
 
                 <div class="col-sm-6">
 		         <a href="#">
-			      <strong>0</strong> 
+			      <strong>  <strong><%= link_to @user.passive_relationships.count, "#" %></strong> </strong> 
 			     </a>
                   <div>following</div>	
                 </div>
