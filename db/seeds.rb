@@ -25,3 +25,11 @@
        password: "password"
    )
 end
+
+
+User.create!(
+    name: "Admin User",
+    email: "admin@gmail.com",
+    password: "password",
+    admin: true
+)
