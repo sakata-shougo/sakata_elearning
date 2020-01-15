@@ -4,17 +4,24 @@ class ApplicationController < ActionController::Base
 
  #applicationControllerは、異なるcontroller間で使える。
 
- def logged_in_user　#logged_in_userメゾット
-  unless signed_in?　#もしsigned_inしていなければ、
-    flash[:danger] = "Please log in"　#flashメッセージが表示される。
-    redirect_to signin_url　#signページに戻される。
+
+ #This function is to check whether the user is loggedin or not
+ def logged_in_user
+  unless signed_in?
+    flash[:danger] = "Please log in"
+    redirect_to signin_url
   end     
  end
 
- def admin_user #admin_userメゾット
-    unless current_user.admin?　#current_userがadminでなければ、
-        flash[:danger] = "You are not authorized"　#失敗した場合にのみflashメッセージが表示される。
-        redirect_to root_url　#root_urlに戻る。
-    end   
+
+#This function is to check whether the user is admin or not admin.
+ def admin_user
+  unless current_user.admin?
+    flash[:danger] = "You are not authorized"
+    redirect_to root_url
+  end   
  end
 end
+
+
+
