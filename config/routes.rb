@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do   #adminを追加するために追加された。
+    get 'home', to:'pages#home'
+  end
   root 'pages#home' #初めから表示されるページ。
   get "/about" =>  "pages#about"
   get "/signup"  =>  "users#new"
