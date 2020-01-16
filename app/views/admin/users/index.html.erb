@@ -1,0 +1,36 @@
+<% provide(:title, 'All users') %>　 <!--application.htmlのyield側から呼び出すことができる。-->
+<h1 class="text-center">All users</h1>
+
+<%# How to call pagination %>
+<div class ="container">
+<div class=text-center>
+  <div class="paginate text-center mb-3">
+    <%= will_paginate @users %>
+  </div>
+
+ <div class="row">
+    <% @users.each do |user| %>
+        <div class="col-md-6 mb-2">
+            <div class="row">
+                <div class="col-8">
+                    <%= user_avatar(user,"img-size")%>
+                    <%= link_to user.name, "#" %>
+                </div>
+
+                 <div class="col-4">
+                    <% if user.admin %>
+                      <%= link_to "Remove", admin_user_path(user), method: :delete, class: "btn btn-primary" %>
+                    <% else %>
+                      <%= link_to "add",admin_user_path(user), method: :patch, class: "btn btn-info" %>
+                    <%end%>
+                 </div>
+            </div>
+        </div>
+    <% end %>
+ </div>
+
+ <div class="paginate my-3">
+    <%= will_paginate @users %>
+ </div>
+</div>
+</div>

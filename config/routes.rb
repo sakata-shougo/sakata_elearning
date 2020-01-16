@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do   #adminを追加するために追加された。
     get 'home', to:'pages#home'
+    resources :users
   end
   root 'pages#home' #初めから表示されるページ。
   get "/about" =>  "pages#about"
