@@ -1,6 +1,5 @@
- <%= render 'shared/error-message' %> <!--error-messageからファイルを持ってくる。-->
-
 <%= form_for @user do |f| %>
+ <%= render 'shared/error-message', object: f.object %> 
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class:"form-control" %>      
