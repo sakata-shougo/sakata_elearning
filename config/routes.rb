@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do   #adminを追加するために追加された。
     get 'home', to:'pages#home'
-    resources :users
+    delete 'categories', to:'categories#destroy'
+    
+    resources :users 
+    resources :categories
   end
+
   root 'pages#home' #初めから表示されるページ。
   get "/about" =>  "pages#about"
   get "/signup"  =>  "users#new"
@@ -13,8 +17,6 @@ Rails.application.routes.draw do
 
   get '/index' , to: "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
   resources :users
 
 end

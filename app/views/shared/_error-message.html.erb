@@ -1,7 +1,7 @@
-<% if @user.errors.any? %>  <!--もし、エラーが出たら表示する,validatesでの定義も忘れずに-->
+<% if object.errors.any? %>  <!--もし、エラーが出たら表示する,validatesでの定義も忘れずに-->
   <div id="error_explanation" class="alert alert-danger">
     <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>

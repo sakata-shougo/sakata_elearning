@@ -1,0 +1,33 @@
+<h1 class="text-center">All categories</h1>
+
+<%# How to call pagination %>
+<div class="paginate mb-3 ">
+    <%= will_paginate @categories %>
+</div>
+<div class="container">
+    <div class=text-center>
+        <div class="text-right">
+            <%= link_to 'New Category',new_admin_category_path,class: "btn btn-primary"%>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered mt-4">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>action</th>
+                    </tr>
+                    <% @categories.each do |category| %>
+                    <tr>
+                        <td><%= link_to category.title, "#"%></td>
+                        <td><%= link_to category.description, "#"%></td>
+                        <td>
+                            <%= link_to "|edit|", edit_admin_category_path(category) %><%= link_to "|delete|", admin_category_path(category), method: :delete %> 
+                        </td>
+                    </tr>
+                    <% end %>
+                </table> 
+            </div>
+        </div>
+    </div>
+</div>
