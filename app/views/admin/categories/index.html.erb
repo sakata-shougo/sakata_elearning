@@ -1,9 +1,7 @@
 <h1 class="text-center">All categories</h1>
 
 <%# How to call pagination %>
-<div class="paginate mb-3 ">
-    <%= will_paginate @categories %>
-</div>
+
 <div class="container">
     <div class=text-center>
         <div class="text-right">
@@ -19,14 +17,20 @@
                     </tr>
                     <% @categories.each do |category| %>
                     <tr>
-                        <td><%= link_to category.title, "#"%></td>
+                        <td><%= link_to category.title, admin_category_words_path(category)%></td>
                         <td><%= link_to category.description, "#"%></td>
                         <td>
-                            <%= link_to "|edit|", edit_admin_category_path(category) %><%= link_to "|delete|", admin_category_path(category), method: :delete %> 
+                            <%= link_to "|edit|", edit_admin_category_path(category) %>
+                            <%= link_to "|delete|", admin_category_path(category), method: :delete %> 
                         </td>
                     </tr>
                     <% end %>
                 </table> 
+                <div class="paginate mb-3 ">
+                    <%= will_paginate @categories %>
+                </div>
+                    <%= link_to 'Back', admin_categories_path, class: "btn btn-primary" %>
+                <br> <br> <br> <br>
             </div>
         </div>
     </div>
