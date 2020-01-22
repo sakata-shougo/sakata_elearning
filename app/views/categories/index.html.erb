@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="center-block">
+    <h1 class="text-center mt-3">Categories</h1>
+        <div class="row">
+            <% @categories.each do |category|%>
+                <div class="col-6">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                        　
+                            <h2 class="card-title"><%=category.title%></h2>
+                            <hr>
+                            <div class="card-text"><%=category.description%></div>
+                            <%= link_to "Start", "#" ,class: "btn btn-primary"%>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class=text-center>
+        <div class="paginate mt-4 ">
+            <%= will_paginate @categories %>
+        </div>
+    </div>
+</div>
