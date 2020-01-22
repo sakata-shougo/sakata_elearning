@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do   #adminを追加するために追加された。
     get 'home', to:'pages#home'
-    delete 'categories', to:'categories#destroy'
-    
     resources :users 
-    resources :categories
+    resources :categories do
+      resources :words
+    end
   end
 
   root 'pages#home' #初めから表示されるページ。
