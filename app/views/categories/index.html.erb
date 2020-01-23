@@ -11,7 +11,12 @@
                             </div> 
                             <hr>
                             <div class="card-text"><%=category.description%></div>
-                            <%= link_to "Start", "#" ,class: "btn btn-primary"%>
+                             <% lesson = current_user.lesson_taken(category.id)%>
+                             <% if lesson.nil?%>
+                              <%= link_to "Start Lesson", lessons_path(category_id: category.id),method: :post ,class: "btn btn-primary"%>
+                             <%else%>
+                              <%=  link_to "Show result", "#" ,class: "btn btn-secondary"%>
+                             <%end%>
                         </div>
                     </div>
                 </div>

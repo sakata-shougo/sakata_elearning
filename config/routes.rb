@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'answers/new'
+  get 'lessons/create'
+  get 'lessons/show'
   get 'categories/index'
   namespace :admin do   #adminを追加するために追加された。
     get 'home', to:'pages#home'
@@ -20,4 +23,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
   resources :categories
+
+  resources :lessons do
+    resources :answers
+  end
 end
