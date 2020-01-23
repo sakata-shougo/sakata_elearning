@@ -20,6 +20,8 @@ class User < ApplicationRecord
               dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :lessons,dependent: :destroy
+
   def active_relationships
     Relationship.where(follower_id: id)
     # follower_id = id
@@ -40,5 +42,9 @@ def relationship(other_user)
   active_relationships.find_by(
     followed_id: other_user.id
   )
+end
+
+def lesson_taken(cat_id)
+    lesson = lessons.find_by(category_id: cat_id)
 end
 end
