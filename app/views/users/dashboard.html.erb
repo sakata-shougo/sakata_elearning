@@ -9,7 +9,8 @@
             <div class="card-body text-center">
                 <h1><%= current_user.name %></h1>
                 <%= user_avatar(current_user,"img-size")%>　<!--user_avatarの引数に@userを入れる-->
-              <div class="row mt-12"> <!--rowの中にcolが格納されている。-->
+                <hr>
+              <div class="row mt-3"> <!--rowの中にcolが格納されている。-->
                 <div class="col-sm-6"> <!--smはsmallの略称-->
                  <a href="#">
 			      <strong><%= link_to current_user.active_relationships.count, "#" %></strong> 
@@ -35,8 +36,14 @@
             </div>
             <div class="card-body">
                 <hr>
+                <%=render 'shared/feeds' %>
+            </div>
+            <div class="paginate mt-3 text-center">
+                <%= will_paginate @activities %>
             </div>
         </div>       
 	</div>
     </div>
+
+  
 </div> 
