@@ -1,0 +1,42 @@
+<% if @activities.any? %>
+    <% @activities.each do |activity| %>
+        <div class="row mt-4">
+            <div class="col-3">
+            <%= user_avatar(activity.user,"feed-img-size")%>
+            </div>
+        
+            <div class="col-9">
+            <% if activity.action_type=="Lesson" %>
+                <% if activity.user == current_user %>
+                    <p><%= link_to "You ", user_path(current_user)%>learned
+                        <%= activity.action.result%> of <%= activity.action.category.words.count %>
+                        in <%= link_to activity.action.category.title,lesson_path(activity.action.id) %>
+                    </p>
+                <% else%>
+                    <p><%= link_to activity.user.name, user_path(activity.user)%> learned
+                        <%= activity.action.result%> of <%= activity.action.category.words.count %>
+                        in <%= link_to activity.action.category.title,lesson_path(activity.action.id) %>
+                    </p>
+                <%end%>
+                        
+            <% elsif activity.action_type=="Relationship"%>
+                <% followed_user = User.find_by(id: activity.action.followed_id) %>
+                <% if activity.user == current_user %>
+                    <p><%= link_to "You",user_path(current_user) %> followed
+                        <%= link_to followed_user.name,user_path(followed_user)%>
+                    </p>
+                <%else%>
+                    <p><%= link_to activity.user.name,user_path(activity.user) %> followed
+                    <%= link_to followed_user.name,user_path(followed_user)%>
+                    </p>
+                <%end%>
+            <%end%>
+            <span>
+                <small><%= time_ago_in_words(activity.created_at) %> ago. </small>
+            </span>
+            </div>
+        </div>
+    <%end%>
+<% else %>
+  <h5>Nothing to show </h5>
+<% end %>

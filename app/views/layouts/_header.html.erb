@@ -7,41 +7,41 @@
         <ul class="navbar-nav">  
             <% if signed_in? %>  <!--もしサインインしたら、headerが変わるしくみ　ifを使う-->
              <li class="nav-item">
-                <%= link_to "home", root_path ,class: "nav-link" %>      <!--アカウント管理を表示 -->        
+                <%= link_to "HOME", root_path ,class: "nav-link" %>      <!--アカウント管理を表示 -->        
               </li>
             <li class="nav-item">
-                <%= link_to "about", about_path ,class: "nav-link" %>        <!--about-->     
+                <%= link_to "ABOUT", about_path ,class: "nav-link" %>        <!--about-->     
             </li>
 
             <li class="nav-item">
-                <%= link_to "lessons", categories_path ,class: "nav-link" %>        <!--about-->     
+                <%= link_to "LESSONS", categories_path ,class: "nav-link" %>        <!--about-->     
             </li>
                 <li class="nav-item">
-                    <%= link_to "Users", users_path, class: "nav-link" %>
+                    <%= link_to "USERS", users_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbar-dropdown" data-toggle="dropdown">
                         <%= current_user.name %>
                     </a>
                     <div class="dropdown-menu">
-                        <%= link_to "Profile", current_user, class: "dropdown-item" %>
-                        <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
-                        <%= link_to "Logout", signout_path, method: :delete, class: "dropdown-item" %>
+                        <%= link_to "PROFILE", current_user, class: "dropdown-item" %>
+                        <%= link_to "EDIT PROFILE", edit_user_path(current_user), class: "dropdown-item" %>
+                        <%= link_to "LOGOUT", signout_path, method: :delete, class: "dropdown-item" %>
                     </div>
                 </li>
             <% else %>　<!--signできなかった時にここにくる-->
                <li class="nav-item">
-                <%= link_to "home", root_path ,class: "nav-link" %>      <!--アカウント管理を表示 -->        
+                <%= link_to "HOME", root_path ,class: "nav-link" %>      <!--アカウント管理を表示 -->        
               </li>
                 <li class="nav-item">
-                    <%= link_to "Users", users_path, class: "nav-link" %>
+                    <%= link_to "USERS", users_path, class: "nav-link" %>
                 </li>
                 
                 <li class="nav-item">
-                    <%= link_to "Sign up", signup_path, class: "nav-link" %>
+                    <%= link_to "SIGN UP", signup_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Sign in", signin_path, class: "nav-link" %>
+                    <%= link_to "SIGN IN", signin_path, class: "nav-link" %>
                 </li>
             <% end %>
         </ul>
