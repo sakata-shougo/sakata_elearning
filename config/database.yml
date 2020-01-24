@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: sakata_elearning_production
-  username: sakata_elearning
-  password: <%= ENV['SAKATA_ELEARNING_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
