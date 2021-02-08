@@ -78,4 +78,4 @@ gem "font-awesome-rails"
 # How to make many users
 gem 'faker', '~> 2.9'
 
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
